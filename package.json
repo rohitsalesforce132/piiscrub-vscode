@@ -1,14 +1,53 @@
 {
   "name": "piiscrub",
   "displayName": "PIIScrub — PII Guard for Copilot Chat",
-  "description": "Intercepts chat messages, scrubs PII before sending to the language model, restores on response",
+  "description": "Intercepts chat messages and scrubs PII (emails, SSNs, phones, API keys) before they reach the language model",
   "version": "0.1.0",
   "publisher": "rohitsalesforce132",
+  "author": {
+    "name": "Rohit",
+    "url": "https://github.com/rohitsalesforce132"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/rohitsalesforce132/piiscrub-vscode",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rohitsalesforce132/piiscrub-vscode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rohitsalesforce132/piiscrub-vscode/issues"
+  },
   "engines": {
     "vscode": "^1.90.0"
   },
-  "categories": ["Other", "Machine Learning", "Security"],
-  "activationEvents": ["onStartupFinished"],
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#0a0a0a",
+    "theme": "dark"
+  },
+  "categories": [
+    "Other",
+    "Machine Learning",
+    "Security"
+  ],
+  "keywords": [
+    "PII",
+    "redaction",
+    "privacy",
+    "compliance",
+    "SOC2",
+    "HIPAA",
+    "GDPR",
+    "copilot",
+    "chat",
+    "security",
+    "data protection",
+    "masking",
+    "anonymization"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "chatParticipants": [
