@@ -1,0 +1,82 @@
+{
+  "name": "piiscrub",
+  "displayName": "PIIScrub — PII Guard for Copilot Chat",
+  "description": "Intercepts chat messages, scrubs PII before sending to the language model, restores on response",
+  "version": "0.1.0",
+  "publisher": "rohitsalesforce132",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": ["Other", "Machine Learning", "Security"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "chatParticipants": [
+      {
+        "id": "piiscrub.safe",
+        "name": "piisafe",
+        "fullName": "PII Safe Chat",
+        "description": "Chat with automatic PII redaction before sending to the model",
+        "isSticky": true,
+        "commands": [
+          {
+            "name": "scrub",
+            "description": "Show what PII would be redacted from your message (dry run)"
+          }
+        ]
+      }
+    ],
+    "commands": [
+      {
+        "command": "piiscrub.openPanel",
+        "title": "PIIScrub: Open PII-Safe Chat Panel"
+      },
+      {
+        "command": "piiscrub.scrubClipboard",
+        "title": "PIIScrub: Scrub Clipboard"
+      },
+      {
+        "command": "piiscrub.toggleGuard",
+        "title": "PIIScrub: Toggle Global PII Guard"
+      }
+    ],
+    "configuration": {
+      "title": "PIIScrub",
+      "properties": {
+        "piiscrub.showRedactionNotice": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show '🔒 PII Guard: Redacted N items' notice before each response"
+        },
+        "piiscrub.blockIfPIIDetected": {
+          "type": "boolean",
+          "default": false,
+          "description": "Block the message entirely if PII is detected (instead of redacting)"
+        },
+        "piiscrub.customPatterns": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "regex": { "type": "string" },
+              "replacement": { "type": "string" }
+            }
+          },
+          "default": [],
+          "description": "Custom PII patterns to detect (in addition to defaults)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.90.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.4.0"
+  }
+}
