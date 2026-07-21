@@ -1,8 +1,8 @@
 {
   "name": "piiscrub",
-  "displayName": "PIIScrub — PII Guard for Copilot Chat",
-  "description": "Intercepts chat messages and scrubs PII (emails, SSNs, phones, API keys) before they reach the language model",
-  "version": "0.1.0",
+  "displayName": "PIIScrub — Data Guard for Copilot Chat",
+  "description": "Intercepts chat messages and scrubs ALL sensitive data (PII, secrets, code, connection strings, internal hostnames, paths) before reaching the model",
+  "version": "0.2.0",
   "publisher": "rohitsalesforce132",
   "author": {
     "name": "Rohit",
@@ -42,8 +42,12 @@
     "chat",
     "security",
     "data protection",
+    "secrets",
+    "connection strings",
     "masking",
-    "anonymization"
+    "anonymization",
+    "airgap",
+    "enterprise"
   ],
   "activationEvents": [
     "onStartupFinished"
